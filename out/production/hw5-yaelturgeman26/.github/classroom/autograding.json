@@ -1,0 +1,115 @@
+{
+  "tests": [
+    {
+      "name": "Test countChar",
+      "setup": "javac MyStringTest.java MyString.java",
+      "run": "java MyStringTest countChar",
+      "input": "",
+      "output": "Testing countChar:\nhello, l -> 2 (expected: 2)\nhello, h -> 1 (expected: 1)\nhello, z -> 0 (expected: 0)\nempty string, a -> 0 (expected: 0)\naaa, a -> 3 (expected: 3)",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Test subsetOf",
+      "setup": "javac MyStringTest.java MyString.java",
+      "run": "java MyStringTest subsetOf",
+      "input": "",
+      "output": "Testing subsetOf:\nsap in space -> true (expected: true)\nspa in space -> true (expected: true)\npass in space -> false (expected: false)\nc in space -> true (expected: true)\nempty string in anything -> true (expected: true)",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Test spacedString",
+      "setup": "javac MyStringTest.java MyString.java",
+      "run": "java MyStringTest spacedString",
+      "input": "",
+      "output": "Testing spacedString:\nsilent -> \"s i l e n t\" (expected: s i l e n t)\na -> \"a\" (expected: a)\nempty string -> \"\" (expected: )\nhi -> \"h i\" (expected: h i)",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Test randomStringOfLetters",
+      "setup": "javac MyStringTest.java MyString.java",
+      "run": "java MyStringTest randomStringOfLetters",
+      "input": "",
+      "output": "Testing randomStringOfLetters:\nlength 5 -> [a-z]{5}\nlength 10 -> [a-z]{10}\nlength 0 -> \"\"",
+      "comparison": "regex",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Test remove",
+      "setup": "javac MyStringTest.java MyString.java",
+      "run": "java MyStringTest remove",
+      "input": "",
+      "output": "Testing remove:\ncommittee - meet -> comit (expected: comit)\nabc - abc ->  (expected: )\nabc - b -> ac (expected: ac)\nhello - empty string -> hello (expected: hello)",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Test isWordInDictionary",
+      "setup": "javac ScrabbleTest.java Scrabble.java MyString.java",
+      "run": "java ScrabbleTest isWordInDictionary",
+      "input": "",
+      "output": "Testing isWordInDictionary():\nLoading word list from file...\n83667 words loaded.\n'' -> false (expected: false)\n'CAT' -> false (expected: false)\n'xyz123' -> false (expected: false)\n'qwxz' -> false (expected: false)",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 10
+    }, 
+    {
+      "name": "Test wordScore",
+      "setup": "javac ScrabbleTest.java Scrabble.java MyString.java",
+      "run": "java ScrabbleTest wordScore",
+      "input": "",
+      "output": "Testing wordScore():\n'cat' -> 15 (expected: 15)\n'dog' -> 15 (expected: 15)\n'quiz' -> 88 (expected: 88)\n'friendship' -> 240 (expected: 240)\n'running' -> 1056 (expected: 1056)\n'' -> 0 (expected: 0)\n'a' -> 1 (expected: 1)",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Test createHand",
+      "setup": "javac ScrabbleTest.java Scrabble.java MyString.java",
+      "run": "java ScrabbleTest createHand",
+      "input": "",
+      "output": "Testing createHand():\n\nHand 1:\nLength: 10 (expected: 10)\nContains 'a': true (expected: true)\nContains 'e': true (expected: true)\nAll lowercase letters: true (expected: true)\nValid Scrabble letters: true (expected: true)\n\nHand 2:\nLength: 10 (expected: 10)\nContains 'a': true (expected: true)\nContains 'e': true (expected: true)\nAll lowercase letters: true (expected: true)\nValid Scrabble letters: true (expected: true)\n\nHand 3:\nLength: 10 (expected: 10)\nContains 'a': true (expected: true)\nContains 'e': true (expected: true)\nAll lowercase letters: true (expected: true)\nValid Scrabble letters: true (expected: true)",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Test playHand",
+      "setup": "javac ScrabbleTest.java Scrabble.java MyString.java",
+      "run": "java ScrabbleTest playHand",
+      "input": "",
+      "output": "Testing playHand():\nLoading word list from file...\n83667 words loaded.\nCurrent Hand: t e s t\nEnter a word, or '.' to finish playing this hand:\nEnd of hand. Total score: 0 points\nplayHand() method exists and accepts String parameter\nAll required helper methods are implemented",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 5
+    },
+    {
+      "name": "Test playHand with mock input",
+      "setup": "javac ScrabbleTest.java Scrabble.java MyString.java",
+      "run": "java ScrabbleTest playHandWithMockInput",
+      "input": "",
+      "output": "Testing playHand with mock input (hand: aretiin):\nLoading word list from file...\n83667 words loaded.\nExpected sequence of plays:\n1. 'train' -> score: 25\n\nActual output:\nCurrent Hand: a r e t i i n\nEnter a word, or '.' to finish playing this hand:\ntrain earned 25 points. Score: 25 points\n\nCurrent Hand: e i\nEnter a word, or '.' to finish playing this hand:\nInvalid word. Try again.\nCurrent Hand: e i\nEnter a word, or '.' to finish playing this hand:\nInvalid word. Try again.\nCurrent Hand: e i\nEnter a word, or '.' to finish playing this hand:\nEnd of hand. Total score: 25 points\n\n\nTest passed: true",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 10
+    },
+    {
+      "name": "Test playGame",
+      "setup": "javac ScrabbleTest.java Scrabble.java MyString.java",
+      "run": "java ScrabbleTest playGameWithMockInput",
+      "input": "",
+      "output": "Testing playGame exists:\nLoading word list from file...\n83667 words loaded.\nEnter n to deal a new hand, or e to end the game:\nplayGame() method exists and can be called",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": 5
+    }
+
+  ]
+}
