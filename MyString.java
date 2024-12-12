@@ -54,6 +54,12 @@ public class MyString {
      * @return true is str1 is a subset of str2, false otherwise
      */
     public static boolean subsetOf(String str1, String str2) {
+        if(str1 == null || str2==null){
+            return false;
+        }
+        if(str1.length()>str2.length()){
+            return false;
+        }
         boolean foundChar = false;
         for (int i = 0; i < str1.length(); i++) {
             foundChar = false;
@@ -69,7 +75,7 @@ public class MyString {
                 return false;
             }
         }
-        return foundChar;
+        return true;
     }
 
 
@@ -83,6 +89,12 @@ public class MyString {
      * @return a string consisting of the characters of str, separated by spaces.
      */
     public static String spacedString(String str) {
+        if(str == null){
+            return null;
+        }
+        if(str.equals("")){
+            return "";
+        }
         String strNew = "";
         for (int i = 0; i < str.length(); i++) {
             char x = str.charAt(i);
